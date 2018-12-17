@@ -22,15 +22,16 @@ public class MAIN {
             
             do{
                 
-                System.out.println("--- L I G A  N A C I O N A L ---");
+                System.out.println("\n\n--- L I G A  N A C I O N A L ---");
                 System.out.println("1. Agregar equipo");
-                System.out.println("2. Modificar capacidad del estadio");
-                System.out.println("3. Modificar nombre del equipo");
-                System.out.println("4. Modificar ciudad del equipo");
+                System.out.println("2. Modificar equipo");
+                System.out.println("3. Listar equipos");
+                System.out.println("4. Listar Jugadores");
                 System.out.println("5. Eliminar equipo");
                 System.out.println("6. Agregar jugador a un equipo");
-                System.out.println("7. Reportes");
-                System.out.println("8. Salir");
+                System.out.println("7. Jugador por posicion");
+                System.out.println("8. Eliminar equipo");
+                System.out.println(". Salir");
                 System.out.print("Opcion deseada: ");
                 Opcion = leer.nextInt();
                 
@@ -67,9 +68,18 @@ public class MAIN {
                         break;
                         
                     case 3:
+                        
+                        e.ListarEquipos();
+                        
                         break;
                         
                     case 4:
+                        
+                        System.out.println("---- L I S T A D O  D E  J U G A D O R E S ----");
+                        System.out.print("Ingrese el codigo del equipo: ");
+                        int CodigoE = leer.nextInt();
+                        j.iprimirJugadores(CodigoE);
+                        
                         break;
                         
                     case 5:
@@ -100,11 +110,30 @@ public class MAIN {
                         break;
                         
                     case 7:
+                        
+                        System.out.println("---- J U G A D O R  P O R  P O S I C I O N ----");
+                        
+                        System.out.print("Ingrese la posición de los jugadores a mostrar: ");
+                        Pos = leer.next();
+                        
+                        j.posicion(Pos);
+                        
+                        break;
+                        
+                    case 8:
+                        
+                        System.out.println("---- E L I M I N A R  E Q U I P O ---");
+                        
+                        System.out.print("Ingrese el codigo del equipo a eliminar: ");
+                        CodigoE = leer.nextInt();
+                        
+                        e.Eliminar(CodigoE);
+                        
                         break;
                     
                 }
                 
-            }while(Opcion != 8);
+            }while(Opcion != 9);
             
         }catch(IOException ex){
             

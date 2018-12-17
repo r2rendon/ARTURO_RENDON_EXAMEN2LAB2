@@ -50,7 +50,7 @@ public class Jugadores {
             
             //Codigo
             fj.writeInt(CodigoE);
-            //Nombre equipo
+            //Nombre del jugador
             fj.writeUTF(Nombre);
             //Dorsal
             fj.writeInt(Dorsal);
@@ -69,6 +69,70 @@ public class Jugadores {
         
     }
     
+    public int cantidadJugadores(int codigo)throws IOException{
+        int i =0;
+        fj.seek(0);
+        while(fj.getFilePointer() < fj.length()){
+                int cod = fj.readInt();
+                fj.readUTF();
+                fj.readInt();
+                fj.readUTF();
+                fj.readInt();
+                fj.readUTF();
+                if(cod == codigo){
+                i++;
+            }
+        } 
+        return i;
+    }
     
+    public void iprimirJugadores(int codigo)throws IOException{
+        Equipos e = new Equipos();
+        
+        fj.seek(0);
+        int i=0;
+        
+        while(fj.getFilePointer() < fj.length()){
+                int Codigo = fj.readInt();
+                String Nombre = fj.readUTF();
+                int Dorsal = fj.readInt();
+                String Posicion  = fj.readUTF();
+                int Edad = fj.readInt();
+                String Nacionalidad = fj.readUTF();
+                boolean b = e.VerificarEliminado(Codigo);
+                if(b && Codigo == codigo){
+                    i++;
+                    System.out.println("-----------------------------");
+                    System.out.println("Jugador"+i);
+                    System.out.println("Codigo del Equipo: "+Codigo);
+                    System.out.println("Nombre: "+Nombre);
+                    System.out.println("Nacionalidad: "+Nacionalidad);
+                    System.out.println("Posicion: "+Posicion);
+                    System.out.println("Edad: "+Edad);
+                    System.out.println("Dorsal: "+Dorsal);   
+                }
+        } 
+    }
+    
+    public void posicion(String pos)throws IOException{
+        Equipos e = new Equipos();
+        fj.seek(0);
+        while(fj.getFilePointer() < fj.length()){
+            int codigo = fj.readInt();
+            String Nombre = fj.readUTF();
+            int dorsal = fj.readInt();
+            String Pos = fj.readUTF();
+            fj.readInt();
+            fj.readUTF();
+                
+            if(e.VerificarEliminado(codigo) && pos.equals(Pos)){
+                
+                System.out.println("------------------");
+                System.out.println("Nombre : " + Nombre);
+                System.out.println("Dorsal: "+ dorsal);
+                
+            }
+        } 
+    }
     
 }
