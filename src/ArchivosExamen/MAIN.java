@@ -53,15 +53,15 @@ public class MAIN {
                         
                     case 2:
                         
-                        System.out.println("-MODIFICAR CAPACIDAD DEL EQUIPO-");
+                        System.out.println("-MODIFICAR CAPACIDAD DEL ESTADIO DEL EQUIPO-");
                         System.out.print("Codigo del equipo: ");
                         int Codigo = leer.nextInt();
-                        System.out.print("Capacidad nueva del equipo: ");
+                        System.out.print("Capacidad nueva del estadio: ");
                         int CapacidadNueva = leer.nextInt();
                         
                         if (e.modCapacidadEstadio(Codigo, CapacidadNueva)) {
                             
-                            System.out.println("Se modifico la capacidad del equipo . . .");
+                            System.out.println("Se modifico la capacidad del estadio del equipo . . .");
                             
                         }
                         
